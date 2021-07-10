@@ -1,4 +1,4 @@
-
+'''
 #variables
 name = input('Input You Name: ' )
 age = int(input('Input Your Age: '))
@@ -306,11 +306,78 @@ message_file.close() #close file
 message_file = open('new_app.py', 'w') #write /create new python  file 
 message_file.write('print(\'this is a new file\')')#write into new python file we have to use the backslash to write code 
 message_file.close() #close file 
-'''
+
 when you enter the path of a  python file in terminal it prints the contents : 
 mollybeach@Mollys-MacBook-Air zigzag % /opt/homebrew/bin/python3 /Users/mollybeach/Documents/code/2018/zigzag/new_app.py
 this is a new file
 mollybeach@Mollys-MacBook-Air zigzag % 
+
+
+
+#classes and objects
+#python object oriented 
+#feature python
+#classes is a constructor of objects various objects 
+class Myclass:
+    x = 5
+p1 = Myclass() #if we want to intialize an object to our class so we go like this 
+print(p1.x)
+
+#init function allows us to intilizate different values in our class 
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+p1 = Person('John', 87)#if we want to intialize an object to our class so we go like this 
+print(p1.name)
+print(p1.age) 
+
+#input classes 
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+name = input('Enter your name : ')
+age = input('Enter your age : ')
+p1 = Person(name, age)#if we want to intialize an object to our class so we go like this 
+print(p1.name)
+print(p1.age) 
+
+#delete 
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+p1 = Person('John', 13)
+del p1.age 
+print(p1.name) #will still work
+print(p1.age) #wont work
+
+#del pl 
+#print(p1) 
+
+
+#pass
+#if we're creating a class and we dont know what to put in it for now 
+#we can use something called pass 
+#it allows us to by pass any error 
+class Person:
+    pass
+
+
+p1 = Person('John', 13)
+del p1.age 
+print(p1.name) #will still work
+print(p1.age) #wont work
 '''
 
-#classes and objects 
+#we dont need to put student.py because it automatically gets .py 
+#make sure in same directory
+from student import Student
+class Person(Student):
+    pass #too avoid error 
+p1 = Person()
+print(p1.name) #inherits every single thing 
