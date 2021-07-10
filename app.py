@@ -253,62 +253,62 @@ except ValueError:
 finally: print('try except finished went wrong')
 
 #reading files
-#if its in the same folder you write it like this :open('cute.txt', 'r') #read file
-open('cute.txt', 'r') #read file
-open('cute.txt', 'w') #write file
-open('cute.txt', 'a') #append add to the end of the file 
-open('cute.txt', 'r+w') #reading and writing
+#if its in the same folder you write it like this :open('message.txt', 'r') #read file
+open('message.txt', 'r') #read file
+open('message.txt', 'w') #write file
+open('message.txt', 'a') #append add to the end of the file 
+open('message.txt', 'r+w') #reading and writing
 
 #if we open the file we should close the file
 
-#cute_file = open('cute.txt', 'r') #relative path 
-cute_file = open('/Users/mollybeach/Documents/code/2018/zigzag/cute.txt', 'r') #absolute path root path 
+#message_file = open('message.txt', 'r') #relative path 
+message_file = open('/Users/mollybeach/Documents/code/2018/zigzag/message.txt', 'r') #absolute path root path 
 def execute():
-    #print(cute_file.readable()) #check if file is readable going to return a boolean value true or false 
-    #print(cute_file.readline()) #prints a line 
-    # print(cute_file.readline()) #post same method again print second line from the txt file 
-    #print(cute_file.readlines()) #prints all lines in a list 
-    #print(cute_file.readlines()[0]) #print the first line 
+    #print(message_file.readable()) #check if file is readable going to return a boolean value true or false 
+    #print(message_file.readline()) #prints a line 
+    # print(message_file.readline()) #post same method again print second line from the txt file 
+    #print(message_file.readlines()) #prints all lines in a list 
+    #print(message_file.readlines()[0]) #print the first line 
     #interesting when i put 270 and 271 both uncommented it: IndexError list index out of range
-    #return cute_file.readline()
+    #return message_file.readline()
 #for loop in reading files     
-    for line in cute_file.readlines():
+    for line in message_file.readlines():
         print(line)
 execute()
 
 
-cute_file.close() #close file 
+message_file.close() #close file 
 
 #writing files 
 
-#cute_file = open('cute.txt', 'w') #open file 
-#cute_file.write('This is the new text') #write file 
+#message_file = open('message.txt', 'w') #open file 
+#message_file.write('This is the new text') #write file 
 #it ruins everything because it over wrote 
 
 #but if we create a new file in the absolute path 
-#cute_file = open('/Users/mollybeach/Documents/code/2018/zigzag/newcute.txt', 'w')  #absolute path 
-#cute_file.write('hello u r ') #write into new file 
-#cute_file.close() #close file 
+#message_file = open('/Users/mollybeach/Documents/code/2018/zigzag/new_message.txt', 'w')  #absolute path 
+#message_file.write('hello u r ') #write into new file 
+#message_file.close() #close file 
 
 #creating new file with the relative path
-cute_file = open('new_relative_cute.txt', 'w') #open  & write file 
-cute_file.write('hello u r ') #write into new file 
-cute_file.close() #close file 
+message_file = open('new_relative_message.txt', 'w') #open  & write file 
+message_file.write('hello u r ') #write into new file 
+message_file.close() #close file 
 
 #append file
 
-cute_file = open('new_relative_cute.txt', 'a') #open & append file 
-cute_file.write('\n inserted a new line') #write into new file 
-cute_file.close() #close file 
+message_file = open('new_relative_message.txt', 'a') #open & append file 
+message_file.write('\n inserted a new line') #write into new file 
+message_file.close() #close file 
 
 #writing to another python file 
 
-cute_file = open('newpython.py', 'w') #write /create new python  file 
-cute_file.write('print(\'this is a new file\')')#write into new python file we have to use the backslash to write code 
-cute_file.close() #close file 
+message_file = open('new_app.py', 'w') #write /create new python  file 
+message_file.write('print(\'this is a new file\')')#write into new python file we have to use the backslash to write code 
+message_file.close() #close file 
 '''
 when you enter the path of a  python file in terminal it prints the contents : 
-mollybeach@Mollys-MacBook-Air zigzag % /opt/homebrew/bin/python3 /Users/mollybeach/Documents/code/2018/zigzag/newpython.py
+mollybeach@Mollys-MacBook-Air zigzag % /opt/homebrew/bin/python3 /Users/mollybeach/Documents/code/2018/zigzag/new_app.py
 this is a new file
 mollybeach@Mollys-MacBook-Air zigzag % 
 '''
