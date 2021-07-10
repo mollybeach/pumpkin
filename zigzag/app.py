@@ -381,7 +381,7 @@ class Person(Student):
     pass #too avoid error 
 p1 = Person()
 print(p1.name) #inherits every single thing 
-'''
+
 #Python Shell 
 #Python Interpretor or the Python Shell
 # python shell is automatically installed whenever you install python on your computer 
@@ -397,8 +397,8 @@ print(name)
 #'Tim'
 #>>>
 #thats just when your testing out in your shell you cannot use on main editor
-'''
->>> for letter in 'Tim':
+
+for letter in 'Tim':
 	print(letter)
 
 	
@@ -406,8 +406,89 @@ T
 i
 m
 
->>> 
->>> class Person();'''
 
+ class Person();'''
+
+'''
 #Building a Simple Login and SIgn Up System with Python
 
+#how to build basic python program thats getting user input and if statement 
+print('create account now')
+
+username = input('Create new username :')
+password = input('Create new password : ')
+print('Your account has been created successfully please enter your credentials again to login ')
+print('Login now here: \n')
+
+username2 = input('Enter username : ')
+password2 = input('Enter password : ')
+
+if username == username2 and password == password2:
+    print('Logged in successfully')
+else: 
+    print('Login failed')
+
+
+#Modules 
+#Modules in Python
+# Modules basically allow get the fucntion class or everything present in another file it allows you to implement it 
+#and use those same funtions in a file or project 
+#very very versatile very widely used in Python everybody uses modules 
+
+### in mondule .py
+###def say_hi():
+#### print(say_hi)
+
+import module_ex
+
+module_ex.say_hi()
+
+#now module_ex is starting as a modue for my file 
+#module or libray 
+#modules are hosted online 
+#looking for module specific task
+
+
+#implement PIP
+
+#pip used to install external modules from the web to your local PC 
+#go online search for moduels 
+#lets go to pypi lets install django-deep-seralizer 0.1.3
+#pip install django-deep-serializer
+'''
+#Django is a Python Web Framework 
+#concepts you need to start building your own projects using Django
+#With Django  
+#web applications with django without westing any time lets get straight to the video
+#intro install
+#url routing and django apps 
+#django template languge 
+#sending data to template file 
+#building a word coutner in django
+#get post in django
+#static files in django
+#introduction to django mdoels
+#django admin panel and manipulation
+#user registration in django
+#user login and logout iout in django
+#dynamic roating in django
+#postfresql setup
+
+#now you can see that we have django installede for each django project you 
+# want to have some particlar packages just for only that your project is stored in so 
+#its just like a mini envorment wehre you can access everything 
+#just for your project not for your entire computer 
+#i also have a different django version just for a specific reason for each proejct 
+#what we need to do is create a virtual ennvirment 
+#it's like a little box where everything your project is stored in it's just like a mini envorment where you
+#can access everything 
+
+
+#you need to install a virtual enviroment on your computer 
+#use the one that i recommend
+#is Anaconda 
+#but for this simple tutoral lets use a simplier one 
+#called Virtual env wrapper 
+#pip install virtualenvwrapper 
+#mac have to type pip3 
+#windows just pip 
