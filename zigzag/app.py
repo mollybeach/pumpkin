@@ -372,7 +372,7 @@ p1 = Person('John', 13)
 del p1.age 
 print(p1.name) #will still work
 print(p1.age) #wont work
-'''
+
 
 #we dont need to put student.py because it automatically gets .py 
 #make sure in same directory
@@ -381,3 +381,33 @@ class Person(Student):
     pass #too avoid error 
 p1 = Person()
 print(p1.name) #inherits every single thing 
+'''
+#Python Shell 
+#Python Interpretor or the Python Shell
+# python shell is automatically installed whenever you install python on your computer 
+#IDLE Shell 
+#small enviroment python shell is just a small enviroment where i can easily test some code 
+
+#in the python shell: 
+print('hope you are enjoying this tutorial ')
+name = 'Tim'
+print(name)
+#you can also print the name without even writing print it automatically prints it out 
+#>>> name 
+#'Tim'
+#>>>
+#thats just when your testing out in your shell you cannot use on main editor
+'''
+>>> for letter in 'Tim':
+	print(letter)
+
+	
+T
+i
+m
+
+>>> 
+>>> class Person();'''
+
+#Building a Simple Login and SIgn Up System with Python
+
