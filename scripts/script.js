@@ -1,4 +1,4 @@
-let name = 'molly';
+let name = 'user';
 function prnt(){
     console.log('molly')
 }

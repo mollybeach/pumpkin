@@ -286,7 +286,7 @@ message_file.close() #close file
 #it ruins everything because it over wrote 
 
 #but if we create a new file in the absolute path 
-#message_file = open('/Users/mollybeach/Documents/code/2018/zigzag/new_message.txt', 'w')  #absolute path 
+#message_file = open('/Users/mollybeach/Documents/code/2018/zigzag/docs/new_message.txt', 'w')  #absolute path 
 #message_file.write('hello u r ') #write into new file 
 #message_file.close() #close file 
 
