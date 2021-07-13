@@ -492,3 +492,161 @@ module_ex.say_hi()
 #pip install virtualenvwrapper 
 #mac have to type pip3 
 #windows just pip 
+'''
+
+Create virtual environments for python with conda
+
+
+How to set up a virtual environments using conda for the Anaconda Python distribution
+A virtual environment is a named, isolated, working copy of Python that that maintains its own files, directories, and paths so that you can work with specific versions of libraries or Python itself without affecting other Python projects. Virtual environmets make it easy to cleanly separate different projects and avoid problems with different dependencies and version requiremetns across components. The conda command is the preferred interface for managing intstallations and virtual environments with the Anaconda Python distribution. If you have a vanilla Python installation or other Python distribution see virtualenv
+
+Outline
+Check conda is installed and available
+Update conda if necessary
+Create a virtual environment
+Activate a virtual environment
+Install additional python packages
+Deactivate a virtual environment
+Delete a virtual environment
+Jargon
+
+link to PATH,
+
+Requirements
+Anaconda Python distribution installed and accessible
+1. Check conda is installed and in your PATH
+Open a terminal client.
+Enter conda -V into the terminal command line and press enter.
+If conda is installed you should see somehting like the following.
+$ conda -V
+conda 3.7.0
+2. Check conda is up to date
+In the terminal client enter
+conda update conda
+
+
+Upadate any packages if necessary by typing y to proceed.
+3. Create a virtual environment for your project
+
+In the terminal client enter the following where yourenvname is the name you want to call your environment, and replace x.x with the Python version you wish to use. (To see a list of available python versions first, type conda search "^python$" and press enter.)
+
+
+conda create -n yourenvname python=x.x anaconda
+
+
+
+Press y to proceed. This will install the Python version and all the associated anaconda packaged libraries at “path_to_your_anaconda_location/anaconda/envs/yourenvname”
+
+
+4. Activate your virtual environment.
+To activate or switch into your virtual environment, simply type the following where yourenvname is the name you gave to your environement at creation.
+
+
+source activate yourenvname
+
+
+Activating a conda environment modifies the PATH and shell variables to point to the specific isolated Python set-up you created. The command prompt will change to indicate which conda environemnt you are currently in by prepending (yourenvname). To see a list of all your environments, use the command conda info -e.
+5. Install additional Python packages to a virtual environment.
+To install additional packages only to your virtual environment, enter the following command where yourenvname is the name of your environemnt, and [package] is the name of the package you wish to install. Failure to specify “-n yourenvname” will install the package to the root Python installation.
+conda install -n yourenvname [package]
+6. Deactivate your virtual environment.
+To end a session in the current environment, enter the following. There is no need to specify the envname - which ever is currently active will be deactivated, and the PATH and shell variables will be returned to normal.
+source deactivate
+6. Delete a no longer needed virtual environment
+To delete a conda environment, enter the following, where yourenvname is the name of the environment you wish to delete.
+conda remove -n yourenvname -all
+Related info
+The conda offical documentation can be found here.
+
+@cammerschooner
+
+eResearch cookbook - 2 minute recipes for scientists
+eResearch cookbook - 2 minute recipes for scientists
+your-email@domain.com
+ jekyll
+ jekyllrb
+A template for capturing task recipes for repeatable scientific practices in a consistent format and hosted in a centralised online repository
+'''
+
+# $ conda create -n yourenvname python=x.x anaconda
+#  $ conda activate p_virtual_env
+# (base) mollybeach@Mollys-MacBook-Air ~ % conda activate p_virtual_env
+# (p_virtual_env) mollybeach@Mollys-MacBook-Air ~ % pip install django                      (install everything you need in new project including python version )
+# (p_virtual_env) mollybeach@Mollys-MacBook-Air 2018 % cd zigzag                              (change to the wanted directed as u can see on the left it still remains in the virtual enviroment
+# (p_virtual_env) mollybeach@Mollys-MacBook-Air zigzag % django-admin startproject myapp      (make sure to include the app/project you want after startproject space appname
+# open your project in vscode (directory in vs code)
+#you will see that theres manage.py already there leave it alone and also init asgi 
+# settings install apps 
+# url 
+# #wsgi 
+# manage
+
+
+#to deactivate our project all we ha e to do is type conda deactivate in terminal
+# conda deactivate --> no longer in virtual enviroment 
+
+#now open terminal from inside vscode from inside project file 
+#now to activate virtual enviroment there all you have to do is type 
+
+# (base) mollybeach@Mollys-MacBook-Air myapp % source activate p_virtual_env
+#(p_virtual_env) mollybeach@Mollys-MacBook-Air myapp % 
+
+
+#URL Routing and Django App
+
+# The root directory of the Django project is the being in the directory that includes the manage.py file 
+
+#create an app thats when we use manage.py 
+#----> in terminal in vscode
+#python 
+
+#use the right intrepetator in vs code to get django errors to go away in vs code 
+#https://hruthiktechtips.wordpress.com/2021/02/19/report-missing-module-source/
+
+
+'''
+in urls.py : 
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    #path('admin/', admin.site.urls),
+    path('', views.index, name='index')
+
+in app.py : 
+
+from django.shortcuts import render
+from django.http import HttpResponse
+def index(request):
+    return HttpResponse('<h1> hey, Welcome </h1>')
+    
+    
+    '''
+#then we're going to run our project in terminal $ python manage.py runserver 
+# after $python manage.py migrating to apply migration 
+# the text : 'hey welcome ' was seen on localhost server : http://127.0.0.1:8000/
+
+#IF NOT WORKING
+#from django.urls import path, include <- add this to line 17
+# #if local host isnt open and is stuck on the django template and isn't showing hey welcome 
+#path('', include('myapp.urls) #if local host isnt opening add this line here 
+
+
+
+#we want to add more 
+#configure django to see our html files 
+# in our root directory (where manage.py is s sibling ) we are going to create a folder called templates 
+#in that folder we are going to store all our html files 
+#we need to tell django where our templates folder is 
+#so we go into settings.py scroll down to TEMPLETES = 'DIRS' : [BASE_DIR, 'templates']
+#now django knows where to look for html files 
+#create new html file in #templates folder 
+# go to view.py 
+#change def index(request):
+#   return HttpResponse('<h1> hey, Welcome </h1>')
+#to 
+# def index(request): 
+#return render(request, 'index.html') 
+
+#just quit and reload the server 
+# working properly 
