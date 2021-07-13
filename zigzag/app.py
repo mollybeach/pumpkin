@@ -765,4 +765,58 @@ def index(request):
 
 #now it working 
 
+#free html temple 
+
+
+#bootstrap made 
+#get free html file move it into templates from one page 
+# and also move the assests into the static file too 
+
+
+#introduction  to Django Models Models get data base SQL
+#model view SQL not single 
+# model database 
+# view templete 
+# instead of using SQL we use classes in python to view our databse 
+#classes and inhereitence 
+
+
+#go to Models.py
+# create  Models.py it i didnt see it 
+
+'''write this : 
+from django.db import models 
+
+#create your models here 
+
+class Feature:
+    id : int 
+    name : str
+    details : str  
+    '''
+#and then in views 
+
+'''def index(request):
+    
+
+    feature1 = Feature()
+    feature1.id = 0
+    feature1.name = 'Fast'
+    feature1.details = 'Our Service is Very Quicky '
+    
+    return render(request, 'index.html', {'feature': feature1}) 
+    '''
+#<link href="{% static "assets/vendor/aos/aos.css" %}"  rel="stylesheet"  >
+#<img src="{% static "assets/img/about-video.jpg" %}" class="img-fluid" alt="">
+# after changing all the href and src in index.html to static then 
+#on line 101 in index.html add : 
+#  <h4 class="title"><a href="">{{feature.name}}</a></h4> 
+# then restart the server and it should say 
+# fast in one of the cards 
+
+# and it does congrats 
+
+#reloaded the page and it works for the rest 
+
+
 
