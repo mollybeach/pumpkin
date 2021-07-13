@@ -818,5 +818,105 @@ class Feature:
 
 #reloaded the page and it works for the rest 
 
+#right now it is just static data 
+# we can make it more dynamic 
+
+'''  <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon"><i class="ri-palette-line"></i></div>
+            <h4 class="title"><a href="">{{feature2.name}}</a></h4>
+            <p class="description">{{feature2.details}}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="icon-box">
+            <div class="icon"><i class="ri-command-line"></i></div>
+            <h4 class="title"><a href="">{{feature3.name}}</a></h4>
+            <p class="description">{{feature3.details}}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
+          <div class="icon-box">
+            <div class="icon"><i class="ri-fingerprint-line"></i></div>
+            <h4 class="title"><a href="">{{feature4.name}}</a></h4>
+            <p class="description">{{feature4.details}}</p>
+          </div>
+        </div>'''
+
+#remove the repeats 
+
+#we want to loop through that data we have 
+
+'''     <div class="row icon-boxes">
+        {% for feature in features %}
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box">
+            <div class="icon"><i class="ri-stack-line"></i></div>
+            <h4 class="title"><a href="">{{feature.name}}</a></h4>
+            <p class="description">{{feature.details}}</p>
+        </div>
+        </div>
+        {% endfor%}
+        
+        '''
+    #with just the for loop in {%%} i
+    # #n html we can repeat because in python for loop is ended 
+    #by going out of indentation but in html 
+#so that's why we have to use {%endfor%}
+#and it works omg 
+# and the fifth one works omg 
+
+# let's do an if statement go to models.py then index.html 
+
+'''
+class Feature:
+    id : int 
+    name : str
+    details : str
+    is_true : bool
+    
+{% if feature.is_true == True %}
+            <p> This feature is true </p>
+            {% elif feature.is_true == False%}
+            <p> This feature is false</p>
+            {% else %}
+            <p> This feature is false</p>
+            {% endif %}
+        </div>  
+        </div>
+        {% endfor%}
+
+    '''
+
+    #working great 
+#Django Admin Panel and Manipulation of Database 
+#throw them into real data bases 
+
+#you;ll see in you project theres a file called db.sqlite3
+#this file stores all the data in sqlite 
+#heres how we use : change models.py
+'''
+class Feature(models.Model): 
+    name = models.CharField(max_length=100)
+    details = models.CharField(max_length=500)
+'''
+#but first we need to register myapp in my project file 
+#go to settings.py go to
+# INSTALLED_APPS=[
+
+
+
+#  'myapp']
+#  add new attribute my app
+#you have to do this before you can start using database in my app 
+#we need to migrate this data into our data base 
+#terminal 
+                                                    #python manage.py migrate <--IDK
+# python manage.py makemirgrations <-video
+
+
+
 
 

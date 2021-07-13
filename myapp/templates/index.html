@@ -96,38 +96,23 @@
       </div>
 
       <div class="row icon-boxes">
+        {% for feature in features %}
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
             <div class="icon"><i class="ri-stack-line"></i></div>
-            <h4 class="title"><a href="">{{feature1.name}}</a></h4>
-            <p class="description">{{feature1.details}}</p>
-          </div>
+            <h4 class="title"><a href="">{{feature.name}}</a></h4>
+            <p class="description">{{feature.details}}</p>
+            {% if feature.is_true == True %}
+            <p> This feature is true </p>
+              {% elif feature.is_true == False%}
+            <p> This feature is false</p>
+            {% else %}
+            <p> This feature is false</p>
+            {% endif %}
+          </div>  
         </div>
-
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><i class="ri-palette-line"></i></div>
-            <h4 class="title"><a href="">{{feature2.name}}</a></h4>
-            <p class="description">{{feature2.details}}</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
-          <div class="icon-box">
-            <div class="icon"><i class="ri-command-line"></i></div>
-            <h4 class="title"><a href="">{{feature3.name}}</a></h4>
-            <p class="description">{{feature3.details}}</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
-          <div class="icon-box">
-            <div class="icon"><i class="ri-fingerprint-line"></i></div>
-            <h4 class="title"><a href="">{{feature4.name}}</a></h4>
-            <p class="description">{{feature4.details}}</p>
-          </div>
-        </div>
-
+        {% endfor%}
+  
       </div>
     </div>
   </section><!-- End Hero -->
