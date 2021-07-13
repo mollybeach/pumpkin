@@ -13,3 +13,6 @@ class Feature:
     details : str
     is_true : bool
 '''
+
+# without migrations 
+# $ 

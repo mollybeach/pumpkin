@@ -1,4 +1,4 @@
-"""myapp URL Configuration
+"""myproject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,14 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
-#from django.urls import path, include <- add this to line 17
-# #if local host isnt open and is stuck on the django template and isn't showing hey welcome 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    #path('', include('myapp.urls) #if local host isnt opening add this line here 
-    path('counter', views.counter, name='counter') #at the moment we dont have any function called 
-    #view.counter so lets go create that so go into the views.py 
-] 
+]

@@ -916,7 +916,26 @@ class Feature(models.Model):
                                                     #python manage.py migrate <--IDK
 # python manage.py makemirgrations <-video
 
+#create admin 
+#in url from django.contrib import admin
+#urlpatterns = [
+#    path('admin/', admin.site.urls),
+# #(p_virtual_env) mollybeach@Mollys-MacBook-Air myapp % python manage.py createsuperuser
+# username : admin
+#mollyjbeach@gmail.com
 
+#mdma487547
+#you'll see all the users in the 
+'''
+create admin.py file with : 
+from django.contrib import admin
+from .models import Feature
 
+# Register your models here 
 
+admin.site.register(Feature) #add new data base table in my app in admin  
+'''
+#successfully created my app features database 
+# i think this fixed my problem python manage.py migrate --run-syncdb
+# ran successfully 
 
