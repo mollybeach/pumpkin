@@ -650,3 +650,119 @@ def index(request):
 
 #just quit and reload the server 
 # working properly 
+#current html is static 
+#dynamic data 
+# set a variable 
+# name = 'John
+''' 
+    name = 'Patrick'
+    return render(request, 'index.html', {'name': name})  #this , curly brace after index html 
+    #is like a dictionary send variable to html file 
+    #in html file change <p>Welcome , John/p>
+    #to 
+    # <p>Welcome , {{name}}/p>
+    # now thisPatrick is coming from the backend 
+    can also have something like 
+
+    name = user.name 
+
+    #return HttpResponse('<h1> hey, Welcome </h1>')
+    name = 'Patrick'
+    return render(request, 'index.html', {'name': name})  #this , curly brace after index html 
+    #is like a dictionary send variable to html file 
+    #in html file change <p>Welcome , John/p>
+    #to <p>Welcome , {{name}}/p>
+    can also have user.name='Patrick'
+
+    
+    '''
+
+#after restarting the server it works again 
+#building a word counter in django
+
+#create form in html
+#see that when u submit it is sent to the url 
+
+#create another URL to counter 
+#create another URL to send the data to so go to urls.py
+
+#go to urlpatterns = []
+# add another path 
+#path('counter', views.counter, name='counter')
+# path('counter', views.counter, name='counter') #at the moment we dont have any function called 
+#view.counter so lets go create that so go into the views.py 
+
+#in views .py underneath the def index(request ) return blah blah 
+#create new function 
+#def counter(request):
+#   return render(request,'counter.html')
+#and go into templates and create new html file 
+#counter .html
+#then in the form method of the index.html <form method='' action='counter'
+# in view.py in new function  words = request.GET['words']
+#setting new vairables setting request .get 
+#we are setting it to .GET['words] because that is the name we gave the particular text area 
+#in views.py: 
+#def counter(request):
+#   words = request.GET['words']
+#   amount_of_words = len(words.split())
+#   return render(request, 'counter.html', {'amount' : amount_of_words})
+# in counter.html 
+#The amount of words is {{amount}}
+# it's working even tho .GET and .split weren't highlighting correctly that due to the intpretator guess should ignore
+#working properly 
+#http://127.0.0.1:8000/counter?words=hi+my+name+is+molly+
+# says The amount of words is 5
+#what if we want the url to not be so lengthy what if we want it to just be /counter 
+#talk about that more in the next part 
+
+# get requests vs post request  in django 
+#the reason it is so lengthly is because in the <form method='' the type of method 
+#we left blank there's only two possible types GET and POST  
+#the GET method is when we are not passing not safe infomation or personal information 
+#because it is going to show in the URL 
+#but if we use post method more safe prevents attacks 
+#if i put method = '' or dont put method='' in form it automatically uses a get method 
+#now change to POST
+#it says Forbidden because post is more safe 
+#CSRF verification failed Cross Size Request Forgery it's like an attack 
+#CSRF token prevents attack 
+#so we need to add a CSRF token in Django for it to work 
+#  <form method="POST" action='counter'> 
+#       {% csrf_token %}
+#</form>
+# very easy we just have to add this 
+#errror still coming up MultiValueDictKeyError at /counter
+#we're getting this error because right in view.py  you'll see ->  words = request.GET['words']
+# when we need .POST
+#now it is working the URL is clear 
+
+#Static Files in Django 
+#any external file in 
+#CSS image we have tell where 
+#create new folder called static 
+#put in settings.py
+#import os  gets a specific operating system 
+
+
+#go down to underneath STATIC_URL = '/static'
+
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#and then in static create style.css
+#then we link stylesheet at top of html file 
+#  <link rel="stylesheet" type="text/css" href="../static/styles.css">
+#the video said it wasnt working but it is for me he said to do it like :
+
+#  <link rel="stylesheet" type="text/css" href='{% static 'style.css' %}'>
+#after changing it to this i got an error it said 
+#TemplateSyntaxError at /
+#Invalid block tag on line 8: 'static'. Did you forget to register or load this tag?
+#load it by : adding this to the top of the html file  {% load static %}
+#{% load static %}
+#<!DOCTYPE html>
+#<html lang="en">
+
+
+#now it working 
+
+

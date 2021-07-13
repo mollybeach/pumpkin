@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <title>Beta Website</title>
 </head>
 
@@ -29,8 +30,22 @@
     </header>
     <main>
         <section class="hero-container ">
-            Hero Container </section>
-        <section class="main-container-one ">Main Container One </section>
+            Hero Container <p>Welcome , {{name}}  You are {{age}} years old You are {{nationality}}
+
+            </p>
+
+
+                </section>
+        <section class="main-container-one ">Input Text Below
+        <form method="POST" action='counter'> 
+        {% csrf_token %}
+        <textarea name='words' rows='25' cols='25'> </textarea>
+        <br>
+        <input type='submit' />
+        </form>
+        
+        
+        </section>
         <section class="main-container-two"> Main Container Two
             <h3 class="main-container-one--bold">Card Header</h3>
             <div class=" card "><img src="../assets/cardimg1.jpg " alt="cardimg1 " class="card_img " />
