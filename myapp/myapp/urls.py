@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     #path('', include('myapp.urls) #if local host isnt opening add this line here 
-    path('counter', views.counter, name='counter') #at the moment we dont have any function called 
+    path('counter', views.counter, name='counter') ,#at the moment we dont have any function called 
     #view.counter so lets go create that so go into the views.py 
+    path('register', views.register, name='register') 
 ] 

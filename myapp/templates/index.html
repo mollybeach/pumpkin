@@ -95,14 +95,31 @@
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
       </div>
 
-      <div class="row icon-boxes">
-        {% for feature in features %}
+    <div class="row icon-boxes">
+
+      {% for feature in features %}
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box">
+        <div class="icon-box">
             <div class="icon"><i class="ri-stack-line"></i></div>
             <h4 class="title"><a href="">{{feature.name}}</a></h4>
             <p class="description">{{feature.details}}</p>
-            {% if feature.is_true == True %}
+            {% if feature.name == 'Fast' %}
+            <p> This feature says our site is quick</p>
+            {% endif %}
+        </div>
+      
+
+
+
+        </div>
+      {% endfor %}
+    </div>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <main id="main">
+  <!--        {% if feature.is_true == True %}
             <p> This feature is true </p>
               {% elif feature.is_true == False%}
             <p> This feature is false</p>
@@ -111,14 +128,6 @@
             {% endif %}
           </div>  
         </div>
-        {% endfor%}
-  
-      </div>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">

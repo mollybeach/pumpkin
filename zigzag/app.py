@@ -859,7 +859,7 @@ class Feature:
         </div>
         </div>
         {% endfor%}
-        
+        </div>
         '''
     #with just the for loop in {%%} i
     # #n html we can repeat because in python for loop is ended 
@@ -938,4 +938,30 @@ admin.site.register(Feature) #add new data base table in my app in admin
 #successfully created my app features database 
 # i think this fixed my problem python manage.py migrate --run-syncdb
 # ran successfully 
+#ran successfully 
+#the reason it was wonkly was because changing the order of the divs change it back styling error 
+#we learned how to fetch the fata 
+
+
+#if statement 
+
+#user registration in Django 
+#platform 
+#Allow user to register into our site 
+#new url named register
+'''
+path('register', views.register, name='register') 
+
+#new function in views named register 
+
+def register(request):
+    return render(request, 'register.html')
+
+
+# and a new html file in templates called register 
+and make a form 
+
+go to : 
+http://127.0.0.1:8000/register 
+    '''
 

@@ -1,7 +1,44 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
 from .models import Feature 
+
 def index(request):
+    features = Feature.objects.all()
+    return render(request, 'index.html',{'features': features})
+
+# we have new variable that we get from feature.object.all() this variable is a list 
+def register(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+
+        if password == password2:
+            if User.objects.filter(email=email).exists():
+                messages.info(request, 'Email already used')
+                return redirect('register')
+            elif User.objects.filter(username=username).exists():
+                messages.info(request, 'Username already used')
+                return redirect('register')
+            else: 
+                user = User.objects.create_user(username=username, email=email, password=password)
+                user.save();
+                return redirect('login')
+    else:
+        messages.info(request, 'Passwords do not match ')
+        return redirect('register')
+    return render(request, 'register.html')
+    
+def counter(request):
+    words = request.POST['words']
+    amount_of_words = len(words.split())
+    return render(request, 'counter.html', {'amount' : amount_of_words})
+
+
+    '''
     feature1 = Feature()
     feature1.id = 0
     feature1.name = 'Fast'
@@ -37,15 +74,12 @@ def index(request):
     ) 
     #return render(request, 'index.html', context) 
 
-def counter(request):
-    words = request.POST['words']
-    amount_of_words = len(words.split())
-    return render(request, 'counter.html', {'amount' : amount_of_words})
+
 
 #text = 'hey how ar ewe doing 
 #print(len(text.splt())) count each word 
 
-
+'''
 '''    
     context = {
         'name' : 'Patrick',
