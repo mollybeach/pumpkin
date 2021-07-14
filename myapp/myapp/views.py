@@ -27,10 +27,11 @@ def register(request):
                 user = User.objects.create_user(username=username, email=email, password=password)
                 user.save();
                 return redirect('login')
-    else:
-        messages.info(request, 'Passwords do not match ')
-        return redirect('register')
-    return render(request, 'register.html')
+        else:
+            messages.info(request, 'Passwords do not match')
+            return redirect('register')
+    else: 
+        return render(request, 'register.html')
     
 def counter(request):
     words = request.POST['words']
