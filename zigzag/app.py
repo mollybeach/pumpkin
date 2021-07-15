@@ -1077,3 +1077,62 @@ def counter(request):
 '''
 
 #postgresql setup 
+
+#download postgresql 
+#in pgadmin 
+#create server          create database         open schema see tables is empty so 
+#myproject_server -> myproject_database -> 
+#open vs code settings.py go 
+'''
+DATABASES = {
+    'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'myproject_database',
+        'USER' : 'postgres',
+        'PASSWORD' : 'jeannette487547',
+        'HOST' : 'localhost'
+    }
+}
+change the default which is the # to the new ones not commented out password new host new 
+
+open terminal download two libraries psycopg2 
+pip install Pillow
+
+these two libraries are going to allow you to connect your django project to your database
+#pillow takes care of everything 
+
+once you have set up and installed 
+
+
+#when my table wasn;t linking i did this is terminal and then it worked : 
+
+(base) mollybeach@Mollys-MacBook-Air ~ % psql -p 5432 -h localhost -U postgres myproject_database
+psql (13.3)
+Type "help" for help.
+
+myproject_database=# 
+
+
+#took like an hour to get the tables to work 
+in pgadmin go to hte server on the left side and click reload configuration 
+
+
+
+under tables go to 
+
+myapp 
+click down arrow clikc myapp_feature
+right click on my app_feature 
+click view/edit data
+click all rows 
+
+SELECT * FROM public.myapp_feature
+ORDER BY id ASC 
+
+no data output as of yet 
+
+create new one in 
+thisis how to connect postgres database 
+'''
