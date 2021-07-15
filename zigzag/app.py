@@ -1135,4 +1135,5 @@ no data output as of yet
 
 create new one in 
 thisis how to connect postgres database 
+The "feat" keyword indicates that the type of commit is a new feature, as opposed to a "fix", "docs", "test", "refactor", etc.
 '''
