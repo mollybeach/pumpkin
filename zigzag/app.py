@@ -1142,4 +1142,6 @@ django-admin startproject blog
 
 cd blog 
 python manage.py startapp posts
+python manage.py makemigrations
+python manage.py migrate
 '''
