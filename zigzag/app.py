@@ -965,3 +965,115 @@ go to :
 http://127.0.0.1:8000/register 
     '''
 
+#fixed register page not loading by fixing the if else statements on the views.py page
+#fixed the repeated words by taken out the style tag out of the for loop on register.html and putting it above the 
+#the for loop 
+
+#User Login and Logout With Django
+
+'''
+login.html: 
+
+<h1>Login Now</h1>
+<style>/h3{color: red}</style>
+{% for messsages in messages%}
+<h3>{{messages}}}</h3>
+{% endfor%}
+<form method='POST' action="login">
+{% csrf_token %}
+    <p> Username: </p>
+    <input type='text' name='username'></input>
+    <p> Password: </p>
+    <input type='password' name='password'></input>
+    <br>
+    <input type='submit'</input>
+</form>
+index.html:
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          {% if user.is_authenticated%}
+          <li><a class="getstarted scrollto" href="logout">Logout</a></li>
+          {% else%}
+          <li><a class="getstarted scrollto" href="login">Login</a></li>
+          {% endif %}
+
+
+views.py: 
+
+from django.shortcuts import redirect, render
+from django.http import HttpResponse
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
+from .models import Feature 
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None: #check if user None that means is not register
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'Creditionals Invalid')
+            return render(request, 'login.html')
+    else:
+        return render(request, 'login.html', )
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+urls.py: 
+
+
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
+    path('counter', views.counter, name='counter') ,#at the moment we dont have any function called 
+    path('register', views.register, name='register'),
+    path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout')
+    
+] 
+
+'''
+
+#Dynamic URL Routing in Django
+
+#same urls but different for different users 12.3.0/john 12.3.0/mary
+
+#: URLs
+
+#path('post/<str:pk>', views.post, name='post')
+
+#were callling post/ string assigning string to a variable pk
+#it could be post/<int: 32> for integer
+
+#views: define function 
+'''def post(request, pk):
+    return render(request, 'post.html')
+create new html file 
+post.html 
+    '''
+'''
+
+how ot make the url link change depending light up 
+{% for post in posts%}
+<h1> 
+<a href="{% url 'post' post %}"> Post
+</h1>
+{% endfor%}
+
+
+def counter(request):
+    posts = [1,2,3,4,5, 'davidbelhu', 'peterwhidden', 'tom']
+    return render(request, 'counter.html', {'posts' : posts})
+'''
+
+#postgresql setup 

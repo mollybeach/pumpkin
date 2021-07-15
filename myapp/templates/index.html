@@ -73,8 +73,14 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          
+          {% if user.is_authenticated%}
+          <li><a class="nav-link scrollto" href="profile/{{userprofile.user}}">My Profile</a></li>
+          <li><a class="getstarted scrollto" href="logout">Logout</a></li>
+          {% else%}
+          <li><a class="nav-link scrollto" href="register">Create Account</a></li>
+          <li><a class="getstarted scrollto" href="login">Login</a></li>
+          {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -87,7 +93,11 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
-          <h1>Molly is a cutie pie </h1>
+        {% if user.is_authenticated%}
+          <h1>Welcome, {{user.username}}  </h1>
+          {% else%}
+          <h1>Welcome!</h1>
+          {% endif %}
           <h2>We are team of talented designers</h2>
         </div>
       </div>

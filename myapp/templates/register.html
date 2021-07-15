@@ -1,11 +1,7 @@
 <h1>Sign Up below</h1>
+<style>h3{color: red}</style>
 {% for message in messages %}
-<style>
-h5{
-    color: red
-    }</style>
-
-<h5> {{message}}</h5>
+<h3> {{message}}</h3>
 {% endfor %}
 <form method='POST' action="register">
 {% csrf_token %}

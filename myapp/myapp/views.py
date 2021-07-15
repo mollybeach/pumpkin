@@ -32,14 +32,112 @@ def register(request):
             return redirect('register')
     else: 
         return render(request, 'register.html')
-    
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None: #check if user None that means is not register
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'Creditionals Invalid')
+            return render(request, 'login.html')
+    else:
+        return render(request, 'login.html', )
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
 def counter(request):
-    words = request.POST['words']
-    amount_of_words = len(words.split())
-    return render(request, 'counter.html', {'amount' : amount_of_words})
+    posts = [1,2,3,4,5, 'davidbelhu', 'peterwhidden', 'tom']
+    return render(request, 'counter.html', {'posts' : posts})
+
+def post(request, pk):
+    return render(request, 'post.html', {'pk': pk}) #<--send that value in url to html ? 
+
+def profile(request):
+    userprofile = {'user': request.user}
+    return render(request, 'profile.html', userprofile)
+
+'''
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from accounts.forms import (
+    RegistrationForm,
+    EditProfileForm
+)
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import (
+    UserChangeForm,
+    PasswordChangeForm
+)
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+def view_profile(request):
+    view_profile = {'user': request.user}
+    #same here..
+    return render(request, 'accounts/view_profile.html', args)
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid:
+            form.save()
+            return redirect('accounts:view_profile')
+    else:
+        form = EditProfileForm(instance=request.user)
+    args = {'form': form}
+    return render(request, 'accounts/edit_profile.html', args)
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('accounts:view_profile')
+        else:
+            return redirect('accounts:change_password')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    args = {'form': form}
+    #same thing here too
+    return render(request, 'accounts/change_password.html', args)
 
 
-    '''
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+    #def count(request):
+# words = request.POST['words']
+    #amount_of_words = len(words.split())
+    #return render(request, 'counter.html', {'amount' : amount_of_words})
     feature1 = Feature()
     feature1.id = 0
     feature1.name = 'Fast'
