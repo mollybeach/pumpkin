@@ -1134,5 +1134,5 @@ ORDER BY id ASC
 no data output as of yet 
 
 create new one in 
-thisis how to connect postres database 
+thisis how to connect postgres database 
 '''
