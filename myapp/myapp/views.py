@@ -53,7 +53,7 @@ def logout(request):
     return redirect('/')
 
 def counter(request):
-    posts = [1,2,3,4,5, 'davidbelhu', 'peterwhidden', 'tom']
+    posts = [1,2,3,4,5, 'mary', 'jane', 'tom']
     return render(request, 'counter.html', {'posts' : posts})
 
 def post(request, pk):

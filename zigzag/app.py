@@ -1086,12 +1086,12 @@ def counter(request):
 '''
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
-        #'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': 'myproject_database',
+        'ENGINE': 'django.db.backends.sqlite3',
+        #'ENGINE': 'django.db.backends.postgresql',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        #'NAME': 'madeleinesalon_db',
         'USER' : 'postgres',
-        'PASSWORD' : 'jeannette487547',
+        'PASSWORD' : 'password',
         'HOST' : 'localhost'
     }
 }
@@ -1142,4 +1142,11 @@ django-admin startproject blog
 
 cd blog 
 python manage.py startapp posts
+python manage.py makemigrations
+python manage.py migrate
+
+
+if css is not loading to bypass the cache in mac gooogle chrome hold down shift and refresh the page 
+
+
 '''
